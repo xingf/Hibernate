@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+	
+<hibernate-mapping package="com.xw.domain">
+	<class name="Employee" table="employee">
+	<!--  id元素用于指定主键 -->
+	<id name="id" column="id" type="java.lang.Integer">
+	<!-- 该元素用于指定主键值的生成策略，hibernate提供七种目前
+	hilo native increment sequence uuid ... -->
+	<generator class="sequence">
+	<param name="sequence">emp_seq</param>
+	</generator>
+	</id>
+	
+	
+	<!-- 配置其他属性，使用property -->
+	<property name="name" type="java.lang.String">
+	<column name="name" not-null="true" ></column>
+	</property>
+	
+	<property name="email" type="java.lang.String">
+	<column name="email" not-null="true"></column>
+	</property>
+	
+	<property name="hiredDate" type="java.util.Date">
+	<column name="hiredate" not-null="true"></column>
+	</property>
+	
+	
+	</class>
+</hibernate-mapping>

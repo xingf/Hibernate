@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<!-- 该文件用于配置domain对象和表的映射关系 -->
+<hibernate-configuration>
+<session-factory>
+	<!-- hibernate 设计者给我们提供了一些常用的配置-->
+	<!-- 配置实用的driver -->
+	<property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+	<property name="hibernate.connection.username">scott</property>
+	<property name="hibernate.connection.password">111111</property>
+	<property name="hibernate.connection.url">jdbc:oracle:thin:@127.0.0.1:1521:orcl</property>
+
+	<!-- 配置dialect，明确告诉hibernate现在连接的是哪种数据库 -->
+	<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+	<!-- 显示出对应的sql语句 -->
+	<property name="show_sql">true</property>
+    <mapping resource="com/xw/domain/Employee.hbm.xml"/>
+</session-factory>
+</hibernate-configuration>
